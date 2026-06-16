@@ -1,0 +1,59 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.title {
+  background-color: rgb(79, 79, 75);
+  padding: 3px 0px;
+  color: white;
+}
+
+.row {
+  gap: 0px !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+
+
+}
+
+.sidebar {
+  height: 91vh;
+  background-color: rgb(240, 225, 180);
+  padding: 0px;
+  color: rgb(21, 18, 18);
+}
+
+.down-arrow {
+  margin-left: 124px;
+}
+
+.sub_menu {
+  display: none !important;
+}
+
+.list-subgroup {
+  transition: all 5s ease !important;
+}
+
+.sign-up {
+  border: 2px solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userIcon{
+  font-size: 55px;
+}
+
+.container1{
+  width:600px !important;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 10px !important;
+}
+
