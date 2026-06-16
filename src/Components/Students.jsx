@@ -14,7 +14,7 @@ function Students() {
     console.log(selectedId);
     async function fetchStudents() {
         try {
-            let { data } = await axios.get(`${import.meta.env.VITE_URL_API}/student/get-all-students`, getApiConfig());
+            let { data } = await axios.get(`${import.meta.env.VITE_API_URL}/student/get-all-students`, getApiConfig());
             console.log(data);
             setStudentData(data.students)
         }
@@ -29,14 +29,15 @@ function Students() {
     }, []);
 
     const handleDeleteData = async () => {
-        let { data } = await axios.delete(`${import.meta.env.VITE_URL_API}/student/delete-student/${selectedId}`, getApiConfig());
+        let { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/student/delete-student/${selectedId}`, getApiConfig());
         if (data.status === 200) {
             closeBtnRef.current.click();
             window.location.reload();
         }
 
     }
-    return (
+    return (                                                                
+
         <>
             <div className="container">
                 <div className="row">
