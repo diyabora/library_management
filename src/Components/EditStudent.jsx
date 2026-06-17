@@ -22,7 +22,7 @@ const EditStudent = () => {
     useEffect(() => {
         async function getStudent() {
             try {
-                let { data } = await axios.get(`${import.meta.env.VITE_URL_API}/student/getStudent/${id}`, getApiConfig());
+                let { data } = await axios.get(`${import.meta.env.VITE_API_URL_LOCAL}/student/getStudent/${id}`, getApiConfig());
                 setStudentData(data.student);
             }
             catch (error) {
@@ -34,7 +34,7 @@ const EditStudent = () => {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        let response = await axios.patch(`${import.meta.env.VITE_URL_API}/student/updateStudent/${id}`, studentData, getApiConfig());
+        let response = await axios.patch(`${import.meta.env.VITE_API_URL_LOCAL}/student/updateStudent/${id}`, studentData, getApiConfig());
         console.log("data stored:", response);
         alert(response.data.message);
     }

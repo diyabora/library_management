@@ -61,7 +61,7 @@ function AddStudent() {
         e.preventDefault();
         let isValid = validate();
         if (isValid) {
-            let { data } = await axios.post(`${import.meta.env.VITE_API_URL}/student/add-new-student`, formvalues, getApiConfig());
+            let { data } = await axios.post(`${import.meta.env.VITE_API_URL_LOCAL}/student/add-new-student`, formvalues, getApiConfig());
             if(data.status === 201){
                 navigate('/students')
             }

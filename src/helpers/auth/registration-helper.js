@@ -60,7 +60,7 @@ const RegistrationHelper = () => {
         if (isValid) {
             //submit the form
             //api call function
-            const response = await axios.post(`${import.meta.env.VITE_URL_API}/auth/sign-up`, formData, getApiConfig);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL_LOCAL}/auth/sign-up`, formData, getApiConfig);
             console.log(response);
             if (response.status === 201) {
                 alert("registration successful");
