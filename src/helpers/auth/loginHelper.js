@@ -45,7 +45,7 @@ const LoginHelper = () => {
         e.preventDefault();
         let isValid = validate();
         if (isValid) {
-            const  data  = await axios.post(`${import.meta.env.VITE_API_URL_LOCAL}/auth/sign-in`, formData, getApiConfig());
+            const  data  = await axios.post(`${import.meta.env.VITE_API_URL}/auth/sign-in`, formData, getApiConfig());
             console.log(data);
             if (data.status === 200) {
                 localStorage.setItem("token", data.token);
