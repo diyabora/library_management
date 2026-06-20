@@ -10,6 +10,7 @@ import Students from "./Components/Students";
 import AddStudent from "./Components/AddStudent";
 import EditStudent from "./Components/EditStudent";
 import Books from "./Components/Books";
+import styles from "./styles/sidebar.module.css";
 // import Parent from "./Components/Parent";
 // import Child from "./Components/Child";
 
@@ -17,11 +18,11 @@ function App() {
   return (
     <>
       <div className="row g-0 ">
-        <h2 className="title text-center m-0">Library Management System</h2>
-        <div className="sidebar col-lg-2  ">
+        {/* <h2 className="title text-center m-0">Library Management System</h2> */}
+        <div className={`${styles.sidebar} col-lg-2`}>
           <Sidebar />
         </div>
-        <div className="dashboard col-lg-10 p-0 ">
+        <div className="dashboard col-lg-10 p-0 bg-light ">
           <Routes>
             <Route path={"/"} element={<Dashboard />} />
             <Route path={"/sign-up"} element={<Registation />} />
@@ -30,7 +31,7 @@ function App() {
             <Route path={"/addNewBook"} element={<AddNewBook />} />
             <Route path={"/students"} element={<Students />} />
             <Route path={"/addStudent"} element={<AddStudent />} />
-            <Route path="/students/editStu,dent/:id" element={<EditStudent />} />
+            <Route path="/students/editStudent/:id" element={<EditStudent />} />
             <Route path="/books" element={ <Books/>} />
           </Routes>
 

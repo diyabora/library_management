@@ -12,7 +12,8 @@ const RegistrationHelper = () => {
     const [formData, setFormData] = useState(initialValues);
     console.log(formData);
     //hide and unhide ppassword 
-    const [show, setShow] = useState();
+    const [show, setShow] = useState(false);
+    const [shows, setShows] = useState(false);
     const handleShow = (e) => {
         setShow(!show);
     }
@@ -26,6 +27,23 @@ const RegistrationHelper = () => {
 
         });
     }
+    const handleIcon = () => {
+        if(show) {
+            setShow(false);
+        }
+        else {
+            setShow(true);
+        }
+    }
+    const handleIcons = () => {
+        if(shows) {
+            setShows(false);
+        }
+        else {
+            setShows(true);
+        }
+    }
+
     const validate = () => {
         let newErrors = {};
         if (formData.name.trim() === "") {
@@ -60,7 +78,7 @@ const RegistrationHelper = () => {
         if (isValid) {
             //submit the form
             //api call function
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/sign-up`, formData, getApiConfig);
+
             console.log(response);
             if (response.status === 201) {
                 alert("registration successful");
@@ -75,11 +93,15 @@ const RegistrationHelper = () => {
         formData,
         handleInputValues,
         show,
+        shows,
         handleShow,
         errors,
-        handleSubmit
+        handleSubmit,
+        handleIcon,
+        handleIcons
 
-    }   
+
+    }
 
 }
 export default RegistrationHelper;

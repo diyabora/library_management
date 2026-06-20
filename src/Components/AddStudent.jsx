@@ -1,76 +1,10 @@
 import { useState } from "react";
 import getApiConfig from "../services/common/getConfig.js";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import addStudentHelper from "../helpers/students/addStudentHelper.js";
+
 
 function AddStudent() {
-    const initialValues = {
-        name: "",
-        phone: "",
-        email: "",
-        dateOfJoining: "",
-        seatNumber: "",
-        status: "",
-        course: "",
-        fee: "",
-        address: ""
-    }
-    const [formvalues, setFormValues] = useState(initialValues);
-    const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
-    console.log(formvalues);
-    const handleInputChange = (e) => {
-        setFormValues({
-            ...formvalues,
-            [e.target.name]: e.target.value
-        });
-    }
-    const validate = () => {
-        const newErrors = {};
-        if (formvalues.name.trim() === "") {
-            newErrors.name = "name is required";
-        }
-        if (formvalues.phone.trim() === "") {
-            newErrors.phone = "phone number is required";
-        }
-        else if (formvalues.phone.length != 10) {
-            newErrors.phone = "phone number must be 10 digits";
-        }
-        if (formvalues.email.trim() === "") {
-            newErrors.email = "email is required";
-        }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formvalues.email)) {
-            newErrors.email = "email is invalid";
-        }
-        if (formvalues.dateOfJoining.trim() === "") {
-            newErrors.dateOfJoining = "date of joining is required";
-        }
-        if (formvalues.seatNumber.trim() === "") {
-            newErrors.seatNumber = "seat number is required";
-        }
-        if (formvalues.status.trim() === "") {
-            newErrors.status = "status is required";
-        }
-        if (formvalues.course.trim() === "") {
-            newErrors.course = "course is required";
-        }
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    }
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        let isValid = validate();
-        if (isValid) {
-            let { data } = await axios.post(`${import.meta.env.VITE_API_URL}/student/add-new-student`, formvalues, getApiConfig());
-            if(data.status === 201){
-                navigate('/students')
-            }
-        }
-        else {
-            alert("form has errors");
-        }
-
-    };
+    const { formvalues, errors,handleInputChange,handleSubmit } = addStudentHelper();
     return (
         <>
             <div className="container" >
@@ -101,7 +35,7 @@ function AddStudent() {
                                 </div>
                                 <div className="row">
                                     <div className="col lg-4  mb-2">
-                                        <label class="form-label col-lg-6">DATE OF JOINING</label><br />
+                                        <label class="form-label col-lg-6">DATE OF BIRTH</label><br />
                                         <input type="DATE" class=" col-lg-6 w-100 p-2 form-control" name="dateOfJoining" onChange={handleInputChange} />
                                         <span className="text-danger">{errors.dateOfJoining}</span>
                                     </div>
@@ -132,7 +66,7 @@ function AddStudent() {
                                         <textarea class="form-control" rows="5" name="address" onChange={handleInputChange} placeholder="Enter address..."></textarea>
                                     </div>
                                 </div>
-                                <button className="btn btn-outline-primary w-100">Add Student</button>
+                                <button className="btn bg w-100">Add Student</button>
                             </form>
                         </div>
                     </div >

@@ -4,10 +4,13 @@ import App from './App.jsx';
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+// import store from './store.js';
 
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  // <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  // </Provider>
 )

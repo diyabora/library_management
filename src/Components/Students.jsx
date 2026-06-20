@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import getApiConfig from '../services/common/getConfig';
-import styles from '../styles/Students.module.css';
+import styles from '../styles/students.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
@@ -16,7 +16,7 @@ function Students() {
         try {
             let { data } = await axios.get(`${import.meta.env.VITE_API_URL}/student/get-all-students`, getApiConfig());
             console.log(data);
-            setStudentData(data.students)
+            setStudentData(data.students);
         }
         catch (error) {
             console.error("Error fetching student data:", error);
@@ -45,13 +45,13 @@ function Students() {
                         <h3>Students</h3>
                     </div>
                     <div className="col-md-12 mb-3 d-flex justify-content-between">
-                        <button className="btn btn-success">
-                            <Link to={'/addStudent'}>+Add Student</Link>
+                        <button className={`btn  ${styles.button} `}>
+                            <Link to={'/addStudent'} className='text-white'>+Add Student</Link>
                         </button>
                         <input type="text" className={`form-control ${styles.searchInput}`} placeholder="Search Student" />
                         <div className="button-container ">
-                            <button className="btn btn-outline-primary me-3">Filter</button>
-                            <button className="btn btn-primary">Export</button>
+                            <button className={`btn me-3 ${styles.bg}`}>Filter</button>
+                            <button className={`btn btn-primary ${styles.button}`}>Export</button>
                         </div>
                     </div>
                 </div>
@@ -62,6 +62,7 @@ function Students() {
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
+                                    <th scope="col">photo</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Course</th>

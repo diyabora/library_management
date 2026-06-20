@@ -1,3 +1,16 @@
 .searchInput{
     width: 50% !important;
 }
+
+.button{
+    background-color:  rgb(63, 100, 209) !important;
+}
+
+.bg{
+border: 2px solid  rgb(63, 100, 209) !important ;
+color:  rgb(63, 100, 209) !important ;
+}
+.bg:hover{
+background-color:  rgb(63, 100, 209) !important ;
+color: #fff !important ;
+}

@@ -1,65 +1,64 @@
 import { useState } from "react";
 import RegistrationHelper from "../helpers/auth/registration-helper";
+import { GiBookCover } from "react-icons/gi";
+import { FaEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function Registration() { 
-    const {formData,errors,show,handleInputValues,handleShow,handleSubmit}=RegistrationHelper();
+function Registration() {
+    const { formData, errors, show, shows, handleInputValues, handleShow, handleSubmit, handleIcon, handleIcons } = RegistrationHelper();
     return (
         <>
-            <div className="container-fluid">
-                <h3>Student Registration</h3>
-                <div className="row">
-                    <div className="bg-primary col-lg-12">
-                        <div className="topic">FILL ALL THE INFO</div>
-                    </div>
-                    <div className="sign-up col-lg-12">
-                        <form action="" onSubmit={handleSubmit}>
-                            <div class="mb-3 row">
-                                <label  class="col-lg-2 col-form-label">UserName:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" onChange={handleInputValues} value={formData.name} name="name"/>
-                                    {
-                                        errors &&
-                                        <span className="text-danger">{errors.name}</span>
-                                    }
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label  class="col-lg-2 col-form-label">Email:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" onChange={handleInputValues} value={formData.email} name="email" />
-                                    {
-                                        errors && 
-                                       < span className="text-danger">{errors.email} </span>
-                                    }
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label  class="col-lg-2 col-form-label">Password:</label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" onChange={handleInputValues} value={formData.password}name="password" />
-                                    {
-                                        errors &&
-                                        <span className="text-danger">{errors.password}</span>
-                                    }
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label  class="col-lg-2 col-form-label">Contact No:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" onChange={handleInputValues} values={formData.contact}name="contact" />
-                                    {
-                                        errors &&
-                                        <span className="text-danger">{errors.contact}</span>
-                                    }
-                                </div>
-                            </div>
-                           <center>
-                             <button className=" btn btn-primary">submit</button>
-                           </center>
-                        </form>
-                    </div>
+            <form className="center card container1 shadow p-4 ms-auto me-auto mt-5 pb-0" onSubmit={handleSubmit}>
+                <div className="bookIcon fs-1 "><GiBookCover /></div>
+                <h3 className="text-center">Register</h3>
+                <p className="text-center">Create your account to get started.</p>
+                <div className="mb-3">
+                    <label for="Input1" className="form-label">Full Name:</label>
+                    <input type="text" className="form-control p-2" placeholder="Enter your full name" name="username" value={formData.name} onChange={handleInputValues} />
+                    {
+                        errors.name && <small className="text-danger">{errors.name}</small>
+                    }
                 </div>
-            </div>
+                <div className="mb-3">
+                    <label for="Input1" className="form-label">Email:</label>
+                    <input type="text" className="form-control p-2" placeholder="Enter your Email" name="email" value={formData.email} onChange={handleInputValues} />
+                    {
+                        errors.email && <small className="text-danger">{errors.email}</small>
+                    }
+                </div>
+                <div className=" input-group mb-3">
+                    <label for="Input1" className="form-label">Password:</label>
+                    <div class="input-group ">
+                        <input type={show == true ? "text" : "password"} class="form-control p-2" placeholder="Enter your password" aria-describedby="basic-addon1" />
+                        <span class="input-group-text" id="basic-addon1" onClick={handleIcon}>
+                            {
+                                show == true ? <FaEye /> : <FaRegEyeSlash />
+                            }
+                        </span>
+                    </div>
+                    {
+                        errors.password && <small className="text-danger">{errors.password}</small>
+                    }
+                </div>
+                <div className="mb-3 ">
+                    <label for="Input1" className="form-label">Confirm Password:</label>
+                    <div class="input-group">
+                        <input type={shows == true ? "text" : "password"} class="form-control p-2" placeholder="Enter your password" aria-describedby="basic-addon1" />
+                        <span class="input-group-text" id="basic-addon1" onClick={handleIcons}>
+                            {
+                                shows == true ? <FaEye /> : <FaRegEyeSlash />
+                            }
+                        </span>
+                    </div>
+                    {
+                        errors.password && <small className="text-danger">{errors.password}</small>
+                    }
+                </div>
+                <button type="submit" className="btn btn-primary bg w-100 p-2 ">Register</button>
+                <hr />
+                <p className="text-center">Already have an account? <Link to='/sign-in' className="text-primary">Login</Link> </p>
+            </form>
         </>
     )
 }
