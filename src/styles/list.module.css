@@ -3,15 +3,10 @@
 
     list-style: none;
 }
-.list li{
-    color: #fff !important;
-}
-
 .list>li {
     /* margin-bottom: 15px;  */
-    padding: 4px !important;
+    padding:4px !important;
 }
-
 
 .list li:hover {
     background-color: rgb(63, 100, 209) !important;

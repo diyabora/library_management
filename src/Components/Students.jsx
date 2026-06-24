@@ -15,6 +15,8 @@ function Students() {
     async function fetchStudents() {
         try {
             let { data } = await axios.get(`${import.meta.env.VITE_API_URL}/student/get-all-students`, getApiConfig());
+            let students=data.students;
+            console.log(students.length);
             console.log(data);
             setStudentData(data.students);
         }
@@ -22,7 +24,6 @@ function Students() {
             console.error("Error fetching student data:", error);
         }
     }
-
     // fetchStudents();
     useEffect(() => {
         fetchStudents();
@@ -34,8 +35,8 @@ function Students() {
             closeBtnRef.current.click();
             window.location.reload();
         }
-
     }
+
     return (                                                                
 
         <>
@@ -86,7 +87,7 @@ function Students() {
                                                     <div  >
                                                         <Link to={`/students/editStudent/${items._id}`} className='btn btn-primary'><FaEdit />Edit</Link>
                                                     </div>
-                                                    <button className='btn btn-danger ' data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => { setSelectedId(items._id) }} ><MdDelete />Delete
+                                                    <button className='btn btn-danger' data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => { setSelectedId(items._id) }} ><MdDelete />Delete
                                                     </button>
                                                 </div>
                                             </td>

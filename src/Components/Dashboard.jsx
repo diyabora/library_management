@@ -2,10 +2,29 @@ import { IoBookSharp } from "react-icons/io5";
 import { IoIosPeople } from "react-icons/io";
 import { MdMenuBook } from "react-icons/md";
 import { LuFiles } from "react-icons/lu";
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-function Dashboard() {
+import { Link } from "react-router-dom";
+import getApiConfig from "../services/common/getConfig";
+import axios from "axios";
 
+function Dashboard() {
+    const [totalStudents,setTotalStudents]=useState(0);
+    console.log(totalStudents);
+     async function fetchStudents() {
+        try {
+            let { data } = await axios.get(`${import.meta.env.VITE_API_URL}/student/get-all-students`, getApiConfig());
+            let students=data.students;
+            setTotalStudents(data.students.length);
+        }
+        catch (error) {
+            console.error("Error fetching student data:", error);
+        }
+    }
+    // fetchStudents();
+    useEffect(() => {
+        fetchStudents();
+    }, []);
 
     const state = {
         options: {
@@ -31,7 +50,14 @@ function Dashboard() {
                         <form class="d-flex  me-auto" role="search">
                             <input class="form-control " size={50} type="search" placeholder="Search" aria-label="Search" />
                         </form>
-                        <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center">
+
+                            <li class="nav-item ">
+                                <Link to="/sign-up" className="me-3 text-decoration-underline custom-link-effect">Sign Up</Link>
+                            </li>
+                            <li class="nav-item ">
+                                <Link to="/sign-in" className="me-3 text-decoration-underline custom-link-effect">Login</Link>
+                            </li>
                             <li class="nav-item ms-auto ">
                                 <a class="nav-link me-3" href="#">Notifications
                                     <span className="ms-2">
@@ -81,8 +107,8 @@ function Dashboard() {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-lg-7">
-                                        <p className="card-title" style={{ fontWeight: "500", fontSize: "18px" }}>Total Users</p>
-                                        <h1 className="card-text">300</h1>
+                                        <p className="card-title" style={{ fontWeight: "500", fontSize: "18px" }}>Total Students</p>
+                                        <h1 className="card-text">{totalStudents}</h1>
                                     </div>
                                     <div className="col-lg-5">
                                         <span className="userIcon"><IoIosPeople /></span>

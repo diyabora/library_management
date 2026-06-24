@@ -17,7 +17,7 @@ import styles from "./styles/sidebar.module.css";
 function App() {
   return (
     <>
-      <div className="row g-0 ">
+      <div className="row g-0 w-10">
         {/* <h2 className="title text-center m-0">Library Management System</h2> */}
         <div className={`${styles.sidebar} col-lg-2`}>
           <Sidebar />

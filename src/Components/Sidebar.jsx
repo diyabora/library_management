@@ -15,7 +15,7 @@ function Sidebar() {
     console.log(styles);
     return (
         <>
-            <h5 >
+            <h5>
                 <div className="row ">
                     <div className="col-lg-3 fs-1 mt-auto mb-auto"><GiBookCover /></div>
                     <div className="col-lg-9 fs-4 p-0  mt-auto mb-auto" style={{ lineHeight: "16px" }}>LIBRARY<br /><span className="fs-6 mt-0 gap-0">management system</span></div>

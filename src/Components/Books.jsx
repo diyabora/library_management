@@ -1,5 +1,6 @@
 // import { FaBook } from "react-icons/fa";
 import { IoIosAdd } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 function Books() {
     return (
@@ -12,7 +13,8 @@ function Books() {
                         </h4>
                     </div>
                     <div className="col-lg-6 d-flex">
-                        <button className="btn btn-primary  ms-auto me-4 "><span className="fs-5"><IoIosAdd /></span>Add book</button>
+                            <Link to={"/addNewBook"} className="btn btn-primary bg ms-auto"><span className="fs-5"><IoIosAdd /></span>Add book</Link>
+                        
                     </div>
                 </div>
                 <div className="row mt-5">
@@ -22,13 +24,13 @@ function Books() {
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">NO.</th>
+                                <th scope="col">No.</th>
                                 <th scope="col">Book Cover</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Auther</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,30 +39,45 @@ function Books() {
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>@social</td>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>@social</td>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>@social</td>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
                             </tr>
                         </tbody>
                     </table>
