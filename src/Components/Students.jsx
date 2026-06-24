@@ -106,15 +106,15 @@ function Students() {
                 </div>
             </div>
             {/* delete model */}
-            <div class="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content p-2">
-                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content p-2">
+                        <button type="button" className="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
                         <h5 className='text-center'>Are you sure?</h5>
                         <p className='text-center'>Are you sure you want to delete this data? </p>
-                        <div class="footer ms-auto me-auto d-flex gap-3">
-                            <button ref={closeBtnRef} type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" onClick={handleDeleteData}>delete</button>
+                        <div className="footer ms-auto me-auto d-flex gap-3">
+                            <button ref={closeBtnRef} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-danger" onClick={handleDeleteData}>delete</button>
                         </div>
                     </div>
                 </div>
